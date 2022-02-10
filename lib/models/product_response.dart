@@ -64,13 +64,13 @@ class ProductResponse {
     if (json['product_colors'] != null) {
       productColors = <ProductColors>[];
       json['product_colors'].forEach((v) {
-        productColors!.add(new ProductColors.fromJson(v));
+        productColors!.add(ProductColors.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['brand'] = this.brand;
     data['name'] = this.name;
@@ -109,7 +109,7 @@ class ProductColors {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['hex_value'] = this.hexValue;
     data['colour_name'] = this.colourName;
     return data;

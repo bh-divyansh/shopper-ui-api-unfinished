@@ -12,8 +12,8 @@ class CartRow extends StatelessWidget {
         InkWell(
           onTap: () {},
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 9),
-            padding: EdgeInsets.symmetric(vertical: 14, horizontal: 17),
+            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 9),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 17),
             child: Icon(
               Icons.add_shopping_cart,
               color: dispColor,
@@ -24,13 +24,13 @@ class CartRow extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(child: SizedBox()),
+        const Expanded(child: SizedBox()),
         InkWell(
           onTap: () {},
           child: Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-            padding: EdgeInsets.symmetric(vertical: 14, horizontal: 90),
-            child: Text(
+            margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 90),
+            child: const Text(
               'BUY NOW',
               style: TextStyle(
                   color: Colors.white,

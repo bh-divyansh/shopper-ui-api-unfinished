@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shopper_ui/constants/constants.dart';
-import 'package:shopper_ui/models/product_response.dart';
 import 'package:shopper_ui/services/api_helper.dart';
 import 'widgets/displayer.dart';
 
@@ -18,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     apiHelper.getAllProducts().then(
       (response) {
-        print('this is response status = ${response.statusCode}');
+        // print('this is response status = ${response.statusCode}'); //Problem was showing to avoid print calls in production
         if (response.statusCode >= 200 && response.statusCode <= 299) {
           // List<ProductResponse> data = (response.body.toString() as List)
           //     .map((product) => ProductResponse.fromJson(product))
@@ -26,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // setState(() {
           //   productName = data[0].name!;
           // });
-          print('we have data = ${response.body}');
+          // print('we have data = ${response.body}');
         }
       },
     );
@@ -41,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -49,14 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Colors.black,
             ),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.shopping_cart_rounded,
               color: Colors.black,
             ),
@@ -68,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, bottom: 10),
+          const Padding(
+            padding: EdgeInsets.only(left: 12.0, bottom: 10),
             child: Text(
               'Women',
               style: TextStyle(fontSize: 37, fontWeight: FontWeight.bold),
@@ -77,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
             child: GridView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 mainAxisSpacing: 20,
                 crossAxisCount: 2,

@@ -27,7 +27,7 @@ class DetailScreen extends StatelessWidget {
         backgroundColor: dispColor,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
@@ -37,14 +37,14 @@ class DetailScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Colors.white,
             ),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.shopping_cart_rounded,
               color: Colors.white,
             ),
@@ -98,7 +98,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 15, bottom: 20),
+                padding: const EdgeInsets.only(left: 15, bottom: 20),
                 child: Text(
                   price,
                   style: const TextStyle(
@@ -133,7 +133,7 @@ class DetailScreen extends StatelessWidget {
                             const SizedBox(
                               width: 100,
                             ),
-                            SizeShower(),
+                            const SizeShower(),
                           ],
                         ),
                         SizedBox(

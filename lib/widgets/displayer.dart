@@ -59,7 +59,7 @@ class Displayer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
               child: Text(
                 price,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),

@@ -3,7 +3,7 @@ import 'home-screen.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     ),
