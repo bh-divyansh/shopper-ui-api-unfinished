@@ -53,32 +53,45 @@ class DetailScreen extends StatelessWidget {
         ],
       ),
       body: Stack(
+        fit: StackFit.passthrough,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 1.0, left: 15, bottom: 5),
+              const Padding(
+                padding: EdgeInsets.only(
+                  top: 1.0,
+                  left: 15,
+                  bottom: 5,
+                ),
                 child: Text(
                   'Aristocratic Hand Bag',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 2.0, left: 13, bottom: 5),
+                padding: const EdgeInsets.only(
+                  top: 2.0,
+                  left: 13,
+                  bottom: 5,
+                ),
                 child: Text(
                   name,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ),
                 ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 7.8,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 1),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, bottom: 1),
                 child: Text(
                   'Price',
                   style: TextStyle(color: Colors.white, fontSize: 16),
@@ -88,7 +101,7 @@ class DetailScreen extends StatelessWidget {
                 padding: EdgeInsets.only(left: 15, bottom: 20),
                 child: Text(
                   price,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 36,
                       fontWeight: FontWeight.bold),
@@ -96,57 +109,63 @@ class DetailScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
                     color: Colors.white,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height / 9,
-                        width: MediaQuery.of(context).size.width,
-                      ),
-                      Row(
-                        children: [
-                          ColorChoice(
-                            primaryCC: dispColor,
-                            secondaryCC: clrBag2,
-                            tertiaryCC: clrBag3,
-                          ),
-                          SizedBox(
-                            width: 100,
-                          ),
-                          SizeShower(),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height / 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                          style: TextStyle(
-                              color: Colors.grey.shade600, wordSpacing: 4),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 9,
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 4),
-                        child: QuantityRow(),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 0),
-                        child: CartRow(
-                          dispColor: dispColor,
+                        Row(
+                          children: [
+                            ColorChoice(
+                              primaryCC: dispColor,
+                              secondaryCC: clrBag2,
+                              tertiaryCC: clrBag3,
+                            ),
+                            const SizedBox(
+                              width: 100,
+                            ),
+                            SizeShower(),
+                          ],
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          child: SingleChildScrollView(
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                              style: TextStyle(
+                                  color: Colors.grey.shade600, wordSpacing: 4),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 4.0, horizontal: 4),
+                          child: QuantityRow(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 4.0, horizontal: 0),
+                          child: CartRow(
+                            dispColor: dispColor,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               )

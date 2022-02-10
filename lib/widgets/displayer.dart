@@ -30,16 +30,17 @@ class Displayer extends StatelessWidget {
           ),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              height: MediaQuery.of(context).size.height * 20 / 100,
+              width: MediaQuery.of(context).size.width * 40 / 100,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: dispColor),
-              height: MediaQuery.of(context).size.width / 2,
-              width: MediaQuery.of(context).size.width / 2.19,
+                borderRadius: BorderRadius.circular(10),
+                color: dispColor,
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Image(

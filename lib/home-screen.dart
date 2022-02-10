@@ -1,9 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:shopper_ui/constants/constants.dart';
+import 'package:shopper_ui/models/product_response.dart';
+import 'package:shopper_ui/services/api_helper.dart';
 import 'widgets/displayer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final apiHelper = ApiHelper();
+  String productName = 'Not Available';
+  @override
+  void initState() {
+    apiHelper.getAllProducts().then(
+      (response) {
+        print('this is response status = ${response.statusCode}');
+        if (response.statusCode >= 200 && response.statusCode <= 299) {
+          // List<ProductResponse> data = (response.body.toString() as List)
+          //     .map((product) => ProductResponse.fromJson(product))
+          //     .toList();
+          // setState(() {
+          //   productName = data[0].name!;
+          // });
+          print('we have data = ${response.body}');
+        }
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,38 +75,27 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 37, fontWeight: FontWeight.bold),
             ),
           ),
-          Row(
-            children: [
-              Displayer(
-                dispColor: clrBag1,
-                name: 'Office Code',
-                price: 'Rs. 500',
-                bag_no: 1,
+          Expanded(
+            child: GridView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisSpacing: 20,
+                crossAxisCount: 2,
+                crossAxisSpacing: 0,
+                mainAxisExtent: MediaQuery.of(context).size.height * 28 / 100,
+                // childAspectRatio: 0.79,
               ),
-              Displayer(
-                dispColor: clrBag2,
-                name: 'Belt Bag',
-                price: 'Rs. 500',
-                bag_no: 2,
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Displayer(
-                dispColor: clrBag3,
-                name: 'Hang Top',
-                price: 'Rs. 500',
-                bag_no: 3,
-              ),
-              Displayer(
-                dispColor: clrBag4,
-                name: 'Old Fashion',
-                price: 'Rs. 500',
-                bag_no: 4,
-              ),
-            ],
-          ),
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Displayer(
+                  dispColor: clrBag4,
+                  name: productName,
+                  price: 'price',
+                  bag_no: 5,
+                );
+              },
+            ),
+          )
         ],
       ),
     );
